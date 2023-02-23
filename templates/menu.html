@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Lalana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+</head>
+<body>
+    <section id="fabrication">
+        <div id="titre">
+            Menu
+        </div>
+        <div id="menu">
+            <div>
+                <a href="{{ url_for('menu') }}">menu</a>
+            </div>
+            <div>
+                <a href="{{ url_for('goToInsertRoute') }}">Inserer une nouvelle route</a>
+            </div>
+            <div>
+                <a href="ajoutCouche.html">Ajouter une couche</a>
+            </div>
+            <div>
+                <a href="#">Enlever toutes les couches</a>
+            </div><div>
+                <a href="{{ url_for('goToInsertFiltrable') }}">ajouter filtrable</a>
+            </div>
+        </div>
+        <div id="bloc">
+            <form action="{{ url_for('buildMap') }}" method="post">
+                <div id="route">
+                    <select name="idroute" id="route">
+                        <option value="-1">Toutes les routes</option>
+                        <option value="0">Route prioritaire</option> 
+                        {% for route in routes: %}
+                            <option value="{{ route.id }}">{{ route.description }}</option>
+                        {% endfor %}         
+                    </select>
+                </div>
+                <div id="submit">
+                    <input type="submit" value="Voir route">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

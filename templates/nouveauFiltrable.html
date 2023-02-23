@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Lalana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+</head>
+<body>
+    <section id="fabrication">
+        <div id="titre">
+            nouveau filtrable
+        </div>
+        <div id="menu">
+            <div>
+                <a href="{{ url_for('menu') }}">menu</a>
+            </div>
+            <div>
+                <a href="{{ url_for('goToInsertRoute') }}">Inserer une nouvelle route</a>
+            </div>
+            <div>
+                <a href="ajoutCouche.html">Ajouter une couche</a>
+            </div>
+            <div>
+                <a href="#">Enlever toutes les couches</a>
+            </div>
+            <div>
+                <a href="{{ url_for('goToInsertFiltrable') }}">ajouter filtrable</a>
+            </div>
+        </div>
+        <div id="bloc">
+            <form action="{{ url_for('insertFiltrable') }}" method="post">
+                <div id="description">
+                    <label for="description">description</label>
+                    <input type="text" name="description" id="description">
+                </div>
+                <div id="categorie">
+                    <label for="categorie">categorie</label>
+                    <select name="idcategorie" id="categorie">
+                        {% for idc in range(lenCat): %}
+                        <option value="{{ idc }}">{{ categories[idc] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="lat">
+                    <label for="lat">latitude</label>
+                    <input type="number" name="lat" step="0.0000000001" id="lat" required> 
+                </div>
+                <div id="long">
+                    <label for="long">longitude</label>
+                    <input type="number" name="long" step="0.0000000001" id="long" required>
+                </div>
+                <div id="submit">
+                    <input type="submit" value="Ajouter">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

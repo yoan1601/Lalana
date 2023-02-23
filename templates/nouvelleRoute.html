@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Lalana</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+</head>
+<body>
+    <section id="fabrication">
+        <div id="titre">
+            Nouvelle route
+        </div>
+        <div id="menu">
+            <div>
+                <a href="{{ url_for('menu') }}">menu</a>
+            </div>
+            <div>
+                <a href="{{ url_for('goToInsertRoute') }}">Inserer une nouvelle route</a>
+            </div>
+            <div>
+                <a href="ajoutCouche.html">Ajouter une couche</a>
+            </div>
+            <div>
+                <a href="#">Enlever toutes les couches</a>
+            </div><div>
+                <a href="{{ url_for('goToInsertFiltrable') }}">ajouter filtrable</a>
+            </div>
+        </div>
+        <div id="bloc">
+            <form action="{{ url_for('insertRoute') }}" method="post">
+                <div id="description">
+                    <label for="description">description</label>
+                    <input type="text" min="1" name="description" id="description">
+                </div>
+                <div id="largeur">
+                    <label for="largeur">largeur</label>
+                    <input type="number" min="1" name="largeur" id="largeur" value="5">
+                </div>
+                <div id="PK debut">
+                    <label for="pkd">PK debut</label>
+                    <input type="number" min="1" name="pkd" id="PK debut">
+                </div>
+                <div id="PK fin">
+                    <label for="pkf">PK fin</label>
+                    <input type="number" min="1" name="pkf" id="PK fin">
+                </div>
+                <div id="etat">
+                    <label for="etat">etat (echelle de 100)</label>
+                    <input type="number" min="0" name="etat" id="etat">
+                </div>
+                <div id="latD">
+                    <label for="latD">latitude debut</label>
+                    <input type="number" name="latD" step="0.0000000001" id="latD" required> 
+                </div>
+                <div id="longD">
+                    <label for="longD">longitude debut</label>
+                    <input type="number" name="longD" step="0.0000000001" id="longD" required>
+                </div>
+                <div id="latF">
+                    <label for="latF">latitude fin</label>
+                    <input type="number" name="latF" step="0.0000000001" id="latF" required> 
+                </div>
+                <div id="longF">
+                    <label for="longF">longitude fin</label>
+                    <input type="number" name="longF" step="0.0000000001" id="longF" required>
+                </div>
+                <div id="submit">
+                    <input type="submit" value="Ajouter la route">
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
